@@ -1,0 +1,40 @@
+body{
+	font-family: monospace;
+	font-size: 13pt;
+	background-color: #b7abff;
+}
+ 
+th{
+	text-align: left;
+}
+ 
+img{
+	width: 100%;
+	margin-bottom: 10px;
+}
+ 
+.kotak{
+	border: 1px solid black;
+	width: 60%;
+	margin: 10px auto;
+	padding: 20px;
+	background-color: #c3c3ff;
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+ 
+.blok{
+	clear: both;
+	overflow: visible;
+}
+ 
+.kiri{
+	width: 20%;
+	float: left;
+}
+ 
+.kanan{
+	width: 70%;
+	padding:0px 20px;	
+	float: left;
+}
