@@ -1,0 +1,233 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/font/BebasNeue-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+svg {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #f0f2bd;
+  text-decoration: none;
+}
+
+header {
+  background-color: #4b352a;
+  width: 100%;
+  height: 10vh;
+  color: #f0f2bd;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 10rem;
+}
+
+.link {
+  display: flex;
+  gap: 2.8rem;
+  font-size: 1.2rem;
+}
+
+body {
+  background-color: #fff;
+}
+
+.hero {
+  width: 100%;
+  min-height: 90vh;
+  background-color: #4b352a;
+  color: #f0f2bd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero_foto {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero_foto img {
+  border-radius: 20px;
+}
+
+.hero_words {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero_words h1,
+.identitas h1,
+.keterampilan h1 {
+  font-family: "Bebas Neue";
+  font-size: 7.2rem;
+  margin: 0;
+}
+
+.hero_words h1:nth-child(2) {
+  margin-top: -3rem;
+}
+
+.hero_words p {
+  font-size: 1.2rem;
+}
+
+.identitas {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #f0f2bd;
+  color: #4b352a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12rem;
+}
+
+.identitas h1 {
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper ul {
+  list-style-type: none;
+}
+
+.wrapper ul li {
+  margin: 2rem 0;
+  border-left: 2.8px solid #4b352a;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.wrapper p {
+  font-size: 1.2rem;
+}
+
+.pendidikan {
+  width: 100%;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4b352a;
+  padding: 2rem 12rem;
+}
+
+.timeline {
+  width: 100%;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+
+.timeline,
+.timeline_kiri,
+.timeline_kanan,
+.timeline_1,
+.timeline_2,
+.timeline_3,
+.timeline_4 {
+  position: relative;
+}
+
+.timeline_kiri {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  gap: 16rem;
+  padding-right: 6rem;
+}
+
+.timeline_kanan {
+  width: 100%;
+  padding-left: 6rem;
+}
+
+.timeline_2 {
+  margin-top: 11rem;
+}
+
+.timeline_4 {
+  margin-top: 16rem;
+}
+
+.timeline hr {
+  width: 0.4rem;
+  background-color: #4b352a;
+}
+
+.timeline_1::after,
+.timeline_3::after {
+  content: "";
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #4b352a;
+  border-radius: 50%;
+  z-index: 50;
+  right: -8rem;
+  border: 2px solid #4b352a;
+  top: 8px;
+}
+
+.timeline_2::after,
+.timeline_4::after {
+  content: "";
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #4b352a;
+  border-radius: 50%;
+  z-index: 50;
+  left: -8rem;
+  border: 2px solid #4b352a;
+  top: 8px;
+}
+
+.keterampilan {
+  width: 100%;
+  min-height: 88vh;
+  background-color: #4b352a;
+  color: #f0f2bd;
+  margin-top: -0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gambar_keterampilan {
+  margin-top: 6rem;
+}
+
+.keterampilan img {
+  width: 7.2rem;
+  height: 7.2rem;
+  margin: 0 1.2rem;
+}
+
