@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Biodata - Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1: #0f1724;
+    --bg2: linear-gradient(180deg,#071126 0%, #0f2a3f 100%);
+    --card: rgba(255,255,255,0.06);
+    --accent: #00d1ff;
+    --accent2: #6c7cff;
+    --glass: rgba(255,255,255,0.04);
+    --muted: rgba(255,255,255,0.7);
+    --glass-border: rgba(255,255,255,0.06);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:white;background:var(--bg1);}
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    background:var(--bg2);
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
+    padding:28px;
+    border-radius:14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* Header */
+  .header{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-bottom:18px;
+  }
+  .avatar{
+    width:96px;height:96px;border-radius:14px;overflow:hidden;border:3px solid rgba(255,255,255,0.07);
+    flex:0 0 96px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .head-info{flex:1}
+  .head-info h1{margin:0;font-size:20px;letter-spacing:0.2px}
+  .head-info p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  .download-btn{
+    background:transparent;border:1px solid var(--glass-border);color:var(--muted);
+    padding:8px 12px;border-radius:10px;font-weight:600;text-decoration:none;font-size:13px;
+  }
+
+  /* Timeline layout */
+  .timeline{
+    position:relative;
+    padding:30px 0 10px;
+  }
+
+  /* central line */
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:0;
+    bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--accent2));
+    border-radius:4px;
+    box-shadow:0 0 30px rgba(0,180,255,0.08), inset 0 0 12px rgba(255,255,255,0.03);
+  }
+
+  .item{
+    position:relative;
+    width:calc(50% - 40px);
+    padding:18px;
+    margin:20px 0;
+    background:var(--card);
+    border-radius:12px;
+    border:1px solid var(--glass-border);
+    box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+    backdrop-filter: blur(6px);
+    transition:transform .28s ease, box-shadow .28s ease;
+  }
+  .item:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+
+  /* position left / right */
+  .item.left{ float:left; clear:both; transform-origin:right center; margin-right:calc(50% + 20px);}
+  .item.right{ float:right; clear:both; transform-origin:left center; margin-left:calc(50% + 20px);}
+
+  /* node circle on center line */
+  .item::after{
+    content:"";
+    position:absolute;
+    top:24px;
+    width:18px;height:18px;border-radius:50%;
+    left:100%;
+    transform:translateX(-50%);
+    background:var(--bg1);
+    border:4px solid white;
+    box-shadow:0 4px 14px rgba(0,0,0,0.6);
+  }
+  .item.left::after{ left:100%; transform:translateX(10px) }
+  .item.right::after{ left:0; transform:translateX(-10px) }
+
+  /* title and meta */
+  .item h3{margin:0 0 6px;font-size:16px}
+  .meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+  .desc{font-size:14px;color:rgba(255,255,255,0.9);line-height:1.45}
+
+  /* small badges / skills */
+  .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04)}
+
+  /* responsive rules */
+  @media (max-width:820px){
+    .item{width:100%; margin-left:0;margin-right:0;float:none}
+    .item.left,.item.right{margin:12px 0}
+    .timeline::before{left:18px}
+    .item::after{left:18px; transform:translateX(-50%)}
+  }
+
+  /* small animated glow for line */
+  .glow{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(400px 40px at 50% 0%, rgba(0,209,255,0.06), transparent 10%),
+      radial-gradient(300px 30px at 50% 60%, rgba(108,124,255,0.03), transparent 8%);
+    mix-blend-mode:screen;
+  }
+
+  /* small legend at bottom */
+  .legend{display:flex;gap:12px;align-items:center;justify-content:center;padding-top:18px;opacity:0.9}
+  .legend .dot{width:10px;height:10px;border-radius:50%}
+  .dot.a{background:var(--accent)}
+  .dot.b{background:var(--accent2)}
+  .footer-note{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
+
+  /* nice entrance animation */
+  .item{opacity:0; transform:translateY(8px) scale(0.995)}
+  .item.show{opacity:1; transform:translateY(0) scale(1); transition:all .5s cubic-bezier(.2,.9,.3,1)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="avatar">
+        <img src="https://i.ibb.co/7t0g2Xq/user.png" alt="foto">
+      </div>
+      <div class="head-info">
+        <h1>Fahmi Hadiwijaya</h1>
+        <p>Mahasiswa Teknik Informatika • Visual timeline biodata</p>
+      </div>
+      <div style="display:flex;align-items:center">
+        <a class="download-btn" href="#" onclick="alert('Simpan file -> Print to PDF atau Save as...')">Simpan / Cetak</a>
+      </div>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <!-- timeline items: alternate left / right -->
+      <article class="item left show">
+        <h3>👤 Identitas</h3>
+        <div class="meta">Fahaami • Laki-laki • Jakarta</div>
+        <div class="desc">
+          <strong>Nama:</strong> Fahmi Hadiwijaya<br>
+          <strong>Tanggal Lahir:</strong> 12 Desember 2006<br>
+          <strong>Alamat:</strong> Jl. Contoh No.123, Bekasi
+        </div>
+      </article>
+
+      <article class="item right show">
+        <h3>🎓 Pendidikan</h3>
+        <div class="meta">2022 - Sekarang</div>
+        <div class="desc">
+          - S1 Teknik Informatika (Universitas Contoh)<br>
+          - SMA IPA 1 Bekasi (2019 - 2022)
+        </div>
+        <div class="chips">
+          <span class="chip">Pemrograman</span>
+          <span class="chip">Algoritma</span>
+        </div>
+      </article>
+
+      <article class="item left show">
+        <h3>💼 Pengalaman / Proyek</h3>
+        <div class="meta">Mini projects & freelancing</div>
+        <div class="desc">
+          - Website portofolio sederhana (HTML/CSS/JS)<br>
+          - Aplikasi CLI kecil dengan C
+        </div>
+      </article>
+
+      <article class="item right show">
+        <h3>🛠️ Keterampilan</h3>
+        <div class="meta">Toolset</div>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">C</span>
+          <span class="chip">Git</span>
+        </div>
+      </article>
+
+      <article class="item left show">
+        <h3>🎯 Hobi & Minat</h3>
+        <div class="meta">Waktu luang</div>
+        <div class="desc">Coding, Gaming, Desain grafis, Membuat konten</div>
+      </article>
+
+      <article class="item right show">
+        <h3>✉️ Kontak</h3>
+        <div class="meta">Sosial / Direct</div>
+        <div class="desc">
+          <strong>Email:</strong> nama@email.com<br>
+          <strong>Instagram:</strong> @fahmi<br>
+          <strong>LinkedIn:</strong> linkedin.com/in/fahmi
+        </div>
+      </article>
+
+    </div>
+
+    <div class="glow" aria-hidden="true"></div>
+
+    <div class="footer-note">
+      Timeline ini bersifat responsif — pada layar kecil garis bergeser ke kiri.
+    </div>
+  </div>
+
+<script>
+  // small staggered reveal on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.item');
+    items.forEach((it, i) => {
+      setTimeout(()=> it.classList.add('show'), 120 * i);
+    });
+  });
+</script>
+</body>
+</html>
