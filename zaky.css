@@ -36,6 +36,7 @@
 }
 body {
         overflow-x: hidden;
+        overflow-y: hidden;
 }
 .b {
         color: black;
@@ -59,7 +60,7 @@ body {
         color: black;
         position: relative;
         left: 100px;
-        top: -650px;  
+        top: -680px;  
 }
 .btn {
   background-color: #1e3a8a;
@@ -70,7 +71,7 @@ body {
   font-weight: bold;
   transition: 0.3s;
   position: relative;
-  bottom: 650px;
+  bottom: 708px;
 }
 
 .btn:hover {
