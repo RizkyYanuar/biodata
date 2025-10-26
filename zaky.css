@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; 
+}
 .foto {      
   width: 300px;
   height: 500px;
@@ -71,7 +76,12 @@ body {
   font-weight: bold;
   transition: 0.3s;
   position: relative;
+<<<<<<< HEAD:zaky.css
   bottom: 708px;
+=======
+  bottom: 750px;
+  left: 77px;
+>>>>>>> 4f4db8dbc9c498a09119ad7e97a2bfe3642b2e0d:zaky/style.css
 }
 
 .btn:hover {
